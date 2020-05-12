@@ -4,7 +4,7 @@
 * A commands definition file that is shared among mdp.c and simulator.c
 *
 * @author Vincent Nigro
-* @version 0.0.1
+* @version 0.0.2
 */
 
 #define HALF_MINUTE 30
@@ -12,6 +12,10 @@
 #define FRAME_SIZE 16
 #define HEADER_WIDTH 4
 
+const char * IPV4 = "--INET";
+const char * IPV6 = "--INET6";
+
+// Command table
 const unsigned long         H1                  = 0x0ABCABCABCABCFFF; // 773682123238002687
 const unsigned long         H2                  = 0x0CBACBACBACBAFFF; // 917269416852041727
 const unsigned long         END                 = 0xFFFFFFFFFFFFFFFF; // -1
@@ -56,8 +60,11 @@ void printBits(size_t const size, void const * const ptr)
 }
 
 /**
+* Causes delay in processing for the amount of milliseconds that was passed to
+* the function.
 *
-*
+* @param milliseconds
+* @return void
 */
 void delay(int milliseconds)
 {
